@@ -183,7 +183,31 @@ def add_task():
 
 main_menu()
 
+"""
+Sajid's notes:
+the first main menu is pretty good as is in my opinion.
+Now for each option like view and todo. Just give a few lines you might think would be needed. E.G
 
+def view menu():
+    print("would you like to see all your todos or filter")
+    y or n
+    if they want to filter let the user input some filters like what category they want to see for example
+    category = input("please enter a category or press n to skip this filter")
+
+    day = input("please enter a day or press n to skip this filter")
+
+
+^^ we can alter and change things about if needs be
+
+One of your other tasks are to remove todos:
+
+def DeleteTodo():
+id = input("please enter the id of the selected todo")
+
+See if you can retrieve that todo from the json file (use google/chatgpt) and print out the specific todo 
+
+then ask the user to confirm the choice and have a go at deleting it (again use google and chatgpt). I also sent a picture of my json file of tasks so copy that to see how it would look like
+"""
 
 
 
