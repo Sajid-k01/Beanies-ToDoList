@@ -26,7 +26,7 @@ def main_menu():
 def view_menu():
 
     print("\n")
-    print("Would you like to see all of your to-do's , filter or go back")
+    print("Would you like to see all of your to-do's, fiter or go back")
 
     print("\n")
 
@@ -34,7 +34,7 @@ def view_menu():
 
     if user_view == "y":
         for task in tasks:
-            print(f'ID: {task["id"]}, description: {task["description"]}, category: {task["description"]} ')
+            print(f'ID: {task["id"]}, description: {task["description"]}, category: {task["category"]} ')
 
     elif user_view == "n":
          category_input = input("Enter a category or press n to skip :").strip().lower()
@@ -96,14 +96,16 @@ def remove_menu():
         print(f'ID: {task["id"]}, description: {task["description"]}, category: {task["category"]} ')
     print("\n")
     for task in tasks:
+        print(f'ID: {task["id"]}, description: {task["description"]}, category: {task["category"]} ')
         if id_remove == task["id"]:
-            remove_confirm = input(f"Are you sure u want to remove {id_remove}, y or n")
+            remove_confirm = input(f"Are you sure u want to remove {id_remove}, y or n:  ")
             if remove_confirm == "y":
                 tasks.remove(task)
                 print(f"task {id_remove} has been successfully removed")
                 with open("storage.json","w") as file:
-                    json.dump({"tasks": tasks}, file)   
-                    return(main_menu())
+                    json.dump({"tasks": tasks}, file)  
+    return(main_menu())
+    
 
 
 
@@ -112,34 +114,10 @@ def remove_menu():
 
 def edit_menu():
     print("\n")
-    print("1) Edit Monday")
-    print("2) Edit Tuesday")
-    print("3) Edit Wednesday")
-    print("4) Edit Thursday")
-    print("5) Edit Friday")
-    print("6) Edit Saturday")
-    print("7) Edit Sunday")
-    print("8) Go Back")
+
+    
     print("\n")
-    edit_menu = input("Select a day: ")
-    if edit_menu == "1":
-        """idk"""
-    elif edit_menu == "2":
-        """idk"""
-    elif edit_menu == "3":
-        """idk"""
-    elif edit_menu == "4":
-        """idk"""
-    elif edit_menu == "5":
-        """idk"""
-    elif edit_menu == "6":
-        """idk"""
-    elif edit_menu == "7":
-        """idk"""
-    elif edit_menu == "8":
-         main_menu()
-    else:
-        print("Choose from the option list!!!")
+   
 
 
     
