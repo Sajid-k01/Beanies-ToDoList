@@ -3,7 +3,7 @@ def main_menu():
     
     """ displays main menu"""
 
-    print("\n*/// Menu ///*\n")
+    print("\n     */// Menu ///*\n")
     print("1) View To-do's")
     print("2) Add To-do's")
     print("3) Remove To-do's")
@@ -26,17 +26,21 @@ def main_menu():
 def view_menu():
 
     print("\n")
-    print("Would you like to see all of your to-do's, fiter or go back")
+    print(" ////View To-Do's////")
+    print("\n")
+    print("1) View all to-do's")
+    print("2) Select a specific filtre to view")
+    print("3) go back ")
 
     print("\n")
 
-    user_view = input(" y , n or back ")
+    user_view = input("Select a viewing option:  ")
 
-    if user_view == "y":
+    if user_view == "1":
         for task in tasks:
             print(f'ID: {task["id"]}, description: {task["description"]}, category: {task["category"]} ')
 
-    elif user_view == "n":
+    elif user_view == "2":
          category_input = input("Enter a category or press n to skip :").strip().lower()
          for task in tasks:
             if task["category"].strip().lower() == category_input:
@@ -44,7 +48,7 @@ def view_menu():
 
 
         
-    elif user_view == "back":
+    elif user_view == "3":
          main_menu()
     
     else:
@@ -52,38 +56,12 @@ def view_menu():
 
 def add_menu():
     print("\n")
-    print("1) Add To Monday")
-    print("2) Add To Tuesday")
-    print("3) Add To Wednesday")
-    print("4) Add To Thursday")
-    print("5) Add To Friday")
-    print("6) Add To Saturday")
-    print("7) Add To Sunday")
-    print("8) Go Back")
+    print(" Select an ID to add")
     print("\n")
     
     user_add = input("Select a day: ")
     if user_add == "1":
-        """idk"""
-    elif user_add == "2":
-        """idk"""
-
-    elif user_add == "3":
-        """idk"""
-    elif user_add == "4":
-        """idk"""
     
-    elif user_add == "5":
-        """idk"""
-
-    elif user_add == "6":
-        """idk"""
-
-    elif user_add == "7":
-        """idk"""
-
-    elif user_add == "8":
-         main_menu()
     else:
         print("Choose from the option list!!!")
         
@@ -91,19 +69,28 @@ def add_menu():
 
 def remove_menu():
     print("\n")
-    id_remove = input("Select an id to remove: ")
+    
     for task in tasks:
         print(f'ID: {task["id"]}, description: {task["description"]}, category: {task["category"]} ')
     print("\n")
+    id_remove = input("Select an id to remove: ")
     for task in tasks:
-        print(f'ID: {task["id"]}, description: {task["description"]}, category: {task["category"]} ')
         if id_remove == task["id"]:
             remove_confirm = input(f"Are you sure u want to remove {id_remove}, y or n:  ")
             if remove_confirm == "y":
                 tasks.remove(task)
                 print(f"task {id_remove} has been successfully removed")
                 with open("storage.json","w") as file:
-                    json.dump({"tasks": tasks}, file)  
+                    json.dump({"tasks": tasks}, file) 
+            break
+            
+    else:
+        id_remove != task["id"]
+        print("\n")
+        print("!!!!!!!!!!! id is not in the list  !!!!!!!!!!")
+            
+             
+        
     return(main_menu())
     
 
